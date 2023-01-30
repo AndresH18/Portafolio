@@ -14,7 +14,7 @@ namespace MyPortafolio.Pages
 
         public void OnGet()
         {
-
+            
         }
     }
 }
