@@ -27,7 +27,7 @@ To install the libraries correctly, you muse be inside `.\MyPortafolio\`
 
 ### Bootstrap
 ```ps
-libman install bootstrap@5.3.2 -d wwwroot/lib/bootstrap
+libman install bootstrap@5.2.3 -d wwwroot/lib/bootstrap
 ```
 
 ### Font-Awesome
