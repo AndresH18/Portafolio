@@ -2,28 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="/lib/site/about.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="lib/site/css/about.css">
     <title>About</title>
+    <script src="lib/site/js/about.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav">
-                    <a href="Index.html" class="nav-link">Home</a>
-                    <a href="Projects.html" class="nav-link">Projects</a>
-                    <a href="About.html" class="nav-link active" aria-current="page">About</a>
-                </div>
+<!-- Nav Component -->
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-link" id="nav-home" href="Index.html" aria-current="page">Home</a>
+                <a class="nav-link" id="nav-projects" href="Projects.html">Projects</a>
+                <a class="nav-link" id="nav-about" href="About.html">About</a>
             </div>
         </div>
-    </nav>
-    <h1>About</h1>
+    </div>
+</nav>
+<!-- Main -->
+<h1>About</h1>
 </body>
 </html>
