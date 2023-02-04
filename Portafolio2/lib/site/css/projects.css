@@ -1,3 +1,23 @@
 .site-link {
     margin: 0 10px;
 }
+
+.cover {
+    height: 500px;
+}
+
+.cover-img {
+    background-image: url("/lib/img/cat-army-staring-left.webp");
+    background-position-x: center;
+    background-position-y: -300px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
+
+.intro {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    opacity: 1;
+}
