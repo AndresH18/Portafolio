@@ -8,11 +8,10 @@
     <title>Projects</title>
     <script src="lib/site/js/projects.js"></script>
 </head>
-<body>
+<body class="bg-dark">
 <!-- Nav Component -->
 <header>
     <nav class="navbar navbar-dark navbar-expand invisible">
-        <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
     </nav>
     <nav class="navbar navbar-dark navbar-expand bg-dark fixed-top border-bottom border-danger ">
         <div class="container-fluid">
@@ -26,14 +25,34 @@
     </nav>
 </header>
 <!-- Main -->
-<div>
-    <article class="intro p-5 m-1 text-start">
-        <p>Estos son algunos de mis <b>Proyectos</b></p>
-    </article>
-</div>
-<h1>Projects</h1>
+<main class="bg-dark text-white container-fluid h-100 mt-5">
+    <div class="row justify-content-evenly">
+        <section class="col-4 intro text-start m-5">
+            <p class="font-monospace" id="intro">Estos son algunos de mis <b>Proyectos</b></p>
+        </section>
+        <!-- Imagen -->
+        <h1>Proyectos</h1>
+    </div>
+</main>
 
 <!-- Footer -->
+<footer class="bg-black bg-opacity-25 fixed-bottom pt-5 pb-4 container-fluid">
+    <div class="row">
+        <p class="col text-secondary text-center">&copy; 2023 DavidHoyos. All rights reserved.</p>
+        <div class="col text-center">
+            <!-- Media Icons -->
+            <!-- github -->
+            <a class="text-decoration-none text-secondary site-link"
+               href="https://github.com/AndresH18">
+                <i class="h3 fa-brands fa-github"></i>
+            </a>
+            <a class="text-decoration-none text-secondary site-link"
+               href="https://www.linkedin.com/in/andres-david-hoyos">
+                <i class="h3 fa-brands fa-linkedin"></i>
+            </a>
 
+        </div>
+    </div>
+</footer>
 </body>
 </html>

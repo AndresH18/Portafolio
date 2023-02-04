@@ -3,5 +3,13 @@ window.onload = () => {
     let activeNavElement = document.getElementById("nav-projects");
     activeNavElement.classList.add("active")
 
+    let siteLinks = document.getElementsByClassName("site-link")
+    for (const link of siteLinks) {
+        link.target = "_blank"
+        link.rel = "noreferrer noopener"
+    }
+
     console.log("Loaded")
+
+
 }
