@@ -8,30 +8,37 @@
     <script src="lib/site/js/index.js"></script>
     <title>Index</title>
 </head>
-<body>
+<body class="vh-100">
 <!-- Nav Component -->
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+<header>
+    <nav class="navbar navbar-dark navbar-expand invisible">
+            <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
+    </nav>
+    <nav class="navbar navbar-dark navbar-expand bg-dark fixed-top border-bottom border-danger ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
+            <!--        <div class="navbar-collapse" >-->
             <div class="navbar-nav">
                 <a class="nav-link" id="nav-home" href="Index.html" aria-current="page">Home</a>
                 <a class="nav-link" id="nav-projects" href="Projects.html">Projects</a>
                 <a class="nav-link" id="nav-about" href="About.html">About</a>
+                <!--            </div>-->
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
 <!-- Main -->
-<div>
-    <article class="intro p-5 m-1 text-start">
-        <p>Bienvenido a mi <b>Portfolio</b></p>
-    </article>
-</div>
-<div class="bg-primary">sdhsdhjshdj</div>
+<main class="bg-dark text-white container-fluid h-100">
+    <div class="row">
+        <article class="intro text-start col m-5">
+            <p class="font-monospace" id="intro">Bienvenido a mi <b>Portfolio</b></p>
+        </article>
+    </div>
+    <div class="bg-primary">Content</div>
+
+</main>
+<!-- Footer -->
+<footer class="bg-info fixed-bottom bg-danger">Footer</footer>
+
 </body>
 </html>
