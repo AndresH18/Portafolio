@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="lib/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="lib/site/css/projects.css">
     <title>Projects</title>
-    <script src="lib/site/js/projects.js"></script>
+    <script src="lib/site/js/projects.js" type="module"></script>
 </head>
+
 <body class="bg-dark">
 <!-- Nav Component -->
 <header>
-    <nav class="navbar navbar-dark navbar-expand invisible">
-    </nav>
     <nav class="navbar navbar-dark navbar-expand bg-dark fixed-top border-bottom border-danger ">
         <div class="container-fluid">
             <a class="navbar-brand" href="Index.html">Andres Hoyos</a>
@@ -24,20 +23,38 @@
         </div>
     </nav>
 </header>
+
+
 <!-- Main -->
-<main class="bg-dark text-white container-fluid mt-5">
-    <section class="cover cover-img">
-        <div class="intro">
-<!--                <p class="font-monospace" id="intro">Estos son algunos de mis <b>Proyectos</b></p>-->
-            <!-- Imagen -->
-            <h1 class="h1 text-white">Proyectos</h1>
+<main class="bg-dark text-white mt-5">
+    <section class="cover">
+        <div class="cover-img h-100">
         </div>
+        <h1 class="h1 text-white cover-text border-bottom border-2 border-light">Proyectos</h1>
+    </section>
+    <section class="projects-section container-fluid p-5 h-75">
+        <table class="table table-dark table-striped text-white text-center font-monospace" id="projects-table">
+            <thead class="text-center">
+            <tr>
+                <th class="col-2">Nombre</th>
+                <th class="col-2">Tipo</th>
+                <th class="col-1">Lenguaje</th>
+                <th class="col-2">Framework</th>
+                <th class="col-4">Descripción</th>
+                <td class="col-1"></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr></tr>
+
+            </tbody>
+        </table>
     </section>
 
 </main>
 
 <!-- Footer -->
-<footer class="bg-black bg-opacity-25 fixed-bottom pt-5 pb-4 container-fluid">
+<footer class="bg-black bg-opacity-25 pt-5 pb-4 container-fluid">
     <div class="row">
         <p class="col text-secondary text-center">&copy; 2023 DavidHoyos. All rights reserved.</p>
         <div class="col text-center">

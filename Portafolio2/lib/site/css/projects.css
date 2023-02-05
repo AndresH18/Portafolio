@@ -9,15 +9,35 @@
 .cover-img {
     background-image: url("/lib/img/cat-army-staring-left.webp");
     background-position-x: center;
-    background-position-y: -300px;
+    background-position-y: -150px;
     background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0.5;
 }
 
-.intro {
+.cover-text {
     position: absolute;
     top: 20%;
     left: 40%;
-    opacity: 1;
+    opacity: 80%;
+}
+
+/*.project-name,*/
+/*.project-type,*/
+/*.project-language,*/
+/*.project-framework{*/
+/*    text-align: center;*/
+/*}*/
+
+/*.projects-section table tbody tr:nth-of-type(even) a */
+#projects-table tbody tr:nth-of-type(even) a {
+    color: black;
+    background-color: white;
+}
+
+/*.projects-section table tbody tr:nth-of-type(even) a:hover */
+#projects-table tbody tr:nth-of-type(even) a:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
 }
