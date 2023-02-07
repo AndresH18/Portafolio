@@ -7,7 +7,7 @@
 }
 
 .cover-img {
-    background-image: url("/lib/img/cat-army-staring-left.webp");
+    background-image: url("../../img/cat-army-staring-left.webp");
     background-position-x: center;
     background-position-y: -150px;
     background-size: 100%;

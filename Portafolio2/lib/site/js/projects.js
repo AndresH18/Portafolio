@@ -1,6 +1,3 @@
-import {Project} from "./shared.js";
-
-
 const projects = new Set([
     new Project("One Punch", "API", "C#", "Asp.Net Core", "<i>REST</i> API sobre <b>One Punch Man</b>.", "https://github.com/AndresH18/OnePunch"),
     new Project("One Punch", "API", "C#", "Asp.Net Core", "<i>REST</i> API sobre <b>One Punch Man</b>.", "https://github.com/AndresH18/OnePunch"),

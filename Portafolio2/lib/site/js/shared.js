@@ -1,4 +1,4 @@
-export class Project {
+class Project {
     constructor(name, type, language, framework, description, url) {
         this.name = name
         this.type = type
