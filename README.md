@@ -2,7 +2,7 @@
 This is my Portafolio Proyect
 
 ## Library Manager
-### Check if Library Manager is Installed
+### Check if Library Manager is installed
 ```ps
 dotnet tool list --global
 
