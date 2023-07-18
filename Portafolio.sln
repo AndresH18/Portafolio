@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portafolio.server", "Portafolio.server\Portafolio.server.csproj", "{ADE03A16-69E5-47F7-B2A5-0D55C921F663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portafolio.Wasm", "Portafolio.Wasm\Portafolio.Wasm.csproj", "{2A315662-9AE9-416C-B04B-C7FFC69BD869}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADE03A16-69E5-47F7-B2A5-0D55C921F663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE03A16-69E5-47F7-B2A5-0D55C921F663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE03A16-69E5-47F7-B2A5-0D55C921F663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE03A16-69E5-47F7-B2A5-0D55C921F663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A315662-9AE9-416C-B04B-C7FFC69BD869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A315662-9AE9-416C-B04B-C7FFC69BD869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A315662-9AE9-416C-B04B-C7FFC69BD869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A315662-9AE9-416C-B04B-C7FFC69BD869}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
