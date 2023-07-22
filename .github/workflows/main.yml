@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: |
+      - name: get data 
+        run: |
           repo_name=${GITHUB_REPOSITORY##*/}
           owner_name=${GITHUB_REPOSITORY%/*}
+      - name: show data 
+        run: |
           echo "Repository Name: $repo_name"
           echo "Owner Name: $owner_name"
