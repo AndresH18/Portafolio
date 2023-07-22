@@ -1,0 +1,15 @@
+name: environment test
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  get-repo-name:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: |
+          repo_name=${GITHUB_REPOSITORY##*/}
+          owner_name=${GITHUB_REPOSITORY%/*}
+          echo "Repository Name: $repo_name"
+          echo "Owner Name: $owner_name"
