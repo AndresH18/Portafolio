@@ -4,7 +4,7 @@ name: Deploy WASM to GitHub Pages
 
 on:
   push:
-    # branches: [main]
+      branches: [main]
 
   workflow_dispatch:
 
@@ -30,13 +30,13 @@ jobs:
           # dotnet-quality: "preview"
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
-        run: dotnet publish --nologo --configuration release --output build
+        run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output build
 
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
         run: |
           # get the repository name (user_name/repo_name), keep everything after the forward slash
-          repo_name = ${GITHUB_REPOSITORY##*/}
+          repo_name = ${ GITHUB_REPOSITORY##*/ }
 
           # replace base-tag
           sed -i 's/<base href="\/" \/>/<base href="\/$repo_name\/" \/>/g' build/wwwroot/index.html
