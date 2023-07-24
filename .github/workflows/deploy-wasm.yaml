@@ -4,7 +4,7 @@ name: Deploy WASM to GitHub Pages
 
 on:
   #push:
-      #branches: [master]
+  #branches: [master]
 
   workflow_dispatch:
 
@@ -19,6 +19,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set Variables
+        run: |
+          
+
       # uses GitHub's checkout action to checkout code from the master branch
       - uses: actions/checkout@v3
 
@@ -27,7 +31,7 @@ jobs:
         uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: "7.0.x"
-          # dotnet-quality: "preview"
+      # dotnet-quality: "preview"
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
         run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output ../build
@@ -35,15 +39,15 @@ jobs:
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
         env:
-            RepoName: ${{github.repository#*/}}
+          RepoName: ${{github.repository#*/}}
         run: |
-            # get the repository name (user_name/repo_name), keep everything after the forward slash
-            # repo_name = ${{ github.repository }}
-            echo $RepoName
-            # repo_name= "${repo_name#*/}"
+          # get the repository name (user_name/repo_name), keep everything after the forward slash
+          # repo_name = ${{ github.repository }}
+          echo $RepoName
+          # repo_name= "${repo_name#*/}"
 
-            # replace base-tag
-            sed -i 's/<base href="\/" \/>/<base href="\/$RepoName\/" \/>/g' build/wwwroot/index.html
+          # replace base-tag
+          sed -i 's/<base href="\/" \/>/<base href="\/$RepoName\/" \/>/g' build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html
@@ -66,8 +70,8 @@ jobs:
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
 
     # Deploy to the github-pages environment
     environment:
@@ -76,7 +80,7 @@ jobs:
 
     # Deploy to the github-pages environment
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2.0.3
