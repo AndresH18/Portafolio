@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        my_var_repo_name = "${{ github.repository }}"
-        echo "Hello"
+        my_var_repo_name="${github.repository}"
+        # echo "Hello"
         # repo_name= "${repo_name#*/}"
         # echo $repo_name
