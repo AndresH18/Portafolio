@@ -36,7 +36,7 @@ jobs:
       - name: Change base-tag in index.html from / to
         run: |
           # get the repository name (user_name/repo_name), keep everything after the forward slash
-          repo_name = ${ GITHUB_REPOSITORY##*/ }
+          repo_name = ${ GITHUB_REPOSITORY#*/ }
 
           # replace base-tag
           sed -i 's/<base href="\/" \/>/<base href="\/$repo_name\/" \/>/g' build/wwwroot/index.html
