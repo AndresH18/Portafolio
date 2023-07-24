@@ -32,13 +32,13 @@ jobs:
       # dotnet-quality: "preview"
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
-        run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output ../build
+        run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output build
 
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
         
         run: |
-
+          ls -la
           # replace base-tag
           sed -i 's/<base href="\/" \/>/<base href="\/$REPO_NAME\/" \/>/g' build/wwwroot/index.html
 
