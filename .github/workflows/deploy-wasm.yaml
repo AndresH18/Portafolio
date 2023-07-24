@@ -13,13 +13,12 @@ permissions:
   pages: write
   id-token: write
 
-env: 
+env:
   REPO_NAME: ${{ github.event.repository.name}}
   # url: ${{ steps.deployment.outputs.page_url }}
 
 jobs:
   build:
-    
     # use ubuntu-latest image to run steps in
     runs-on: ubuntu-latest
 
@@ -39,11 +38,11 @@ jobs:
 
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
-        
+
         run: |
           ls -la
           # replace base-tag
-          sed -i 's/<base href="\/" \/>/<base href="\/$REPO_NAME\/" \/>/g' build/wwwroot/index.html
+          sed -i 's/<base href="\/" \/>/<base href="\/${{ REPO_NAME }}\/" \/>/g' build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html
@@ -52,7 +51,6 @@ jobs:
       # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders to start with underscore)
       - name: Add .nojekyll file
         run: touch build/wwwroot/.nojekyll
-
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
