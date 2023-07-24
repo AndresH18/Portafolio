@@ -1,4 +1,4 @@
-name: Deploy WASM to GitHub Pages
+name: Deploy Blazor WASM to GitHub Pages
 
 # ###the repo should have a .gitattributes with the content "* binary" to prevent git from modifying files.
 
