@@ -7,10 +7,4 @@ jobs:
   My-job:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        repo_name="${{github.repository}}"
-        echo "$repo_name"
-        echo "REPO_NAME=${github.repository#*/}" >> $GITHUB_ENV
-        echo $REPO_NAME
-        # repo_name= "${repo_name#*/}"
-        # echo "$repo_name"
+    - run: echo ${ github.event.repository.name }
