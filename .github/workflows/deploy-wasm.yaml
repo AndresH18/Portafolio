@@ -15,14 +15,12 @@ permissions:
 
 jobs:
   build:
+    env:
+      REPO_NAME: ${{ github.event.repository.name}}
     # use ubuntu-latest image to run steps in
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set Variables
-        run: |
-          
-
       # uses GitHub's checkout action to checkout code from the master branch
       - uses: actions/checkout@v3
 
@@ -38,16 +36,11 @@ jobs:
 
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
-        env:
-          RepoName: ${{github.repository#*/}}
+        
         run: |
-          # get the repository name (user_name/repo_name), keep everything after the forward slash
-          # repo_name = ${{ github.repository }}
-          echo $RepoName
-          # repo_name= "${repo_name#*/}"
 
           # replace base-tag
-          sed -i 's/<base href="\/" \/>/<base href="\/$RepoName\/" \/>/g' build/wwwroot/index.html
+          sed -i 's/<base href="\/" \/>/<base href="\/$REPO_NAME\/" \/>/g' build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html
