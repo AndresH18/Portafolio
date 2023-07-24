@@ -30,14 +30,14 @@ jobs:
           # dotnet-quality: "preview"
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
-        run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output build
+        run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output ../build
 
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
         run: |
           # get the repository name (user_name/repo_name), keep everything after the forward slash
           repo_name = ${{ github.repository }}
-          echo repo_name
+          echo $repo_name
           repo_name= ${repo_name#*/}
 
           # replace base-tag
