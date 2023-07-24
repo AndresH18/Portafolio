@@ -42,7 +42,7 @@ jobs:
         run: |
           ls -la
           # replace base-tag
-          sed -i 's/<base href="\/" \/>/<base href="\/${REPO_NAME}\/" \/>/g' build/wwwroot/index.html
+          sed "s@<base href=\"/\" />@<base href=\"/${REPO_NAME}/\" />@g" build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html
