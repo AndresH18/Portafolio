@@ -13,10 +13,13 @@ permissions:
   pages: write
   id-token: write
 
+env: 
+  REPO_NAME: ${{ github.event.repository.name}}
+  url: ${{ steps.deployment.outputs.page_url }}
+
 jobs:
   build:
-    env:
-      REPO_NAME: ${{ github.event.repository.name}}
+    
     # use ubuntu-latest image to run steps in
     runs-on: ubuntu-latest
 
@@ -50,7 +53,10 @@ jobs:
       - name: Add .nojekyll file
         run: touch build/wwwroot/.nojekyll
 
-      # fix file permisions
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v2.0.0
         with:
@@ -76,6 +82,7 @@ jobs:
 
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v2.0.3
         with:
           artifact_name: github-pages
