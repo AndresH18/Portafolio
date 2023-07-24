@@ -37,7 +37,7 @@ jobs:
         run: |
           # get the repository name (user_name/repo_name), keep everything after the forward slash
           repo_name = ${{ github.repository }}
-          echo "$repo_name"
+          echo "Hello"
           repo_name= "${repo_name#*/}"
 
           # replace base-tag
