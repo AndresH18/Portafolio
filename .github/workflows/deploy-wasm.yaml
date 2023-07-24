@@ -35,15 +35,15 @@ jobs:
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
       - name: Change base-tag in index.html from / to
         env:
-            RepoName: github.repository
+            RepoName: ${{github.repository#*/}}
         run: |
-          # get the repository name (user_name/repo_name), keep everything after the forward slash
-          # repo_name = ${{ github.repository }}
-          echo $RepoName
-          # repo_name= "${repo_name#*/}"
+            # get the repository name (user_name/repo_name), keep everything after the forward slash
+            # repo_name = ${{ github.repository }}
+            echo $RepoName
+            # repo_name= "${repo_name#*/}"
 
-          # replace base-tag
-          sed -i 's/<base href="\/" \/>/<base href="\/${ RepoName#*/ } \/" \/>/g' build/wwwroot/index.html
+            # replace base-tag
+            sed -i 's/<base href="\/" \/>/<base href="\/$RepoName\/" \/>/g' build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html
