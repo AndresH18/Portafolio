@@ -10,6 +10,7 @@ jobs:
     - run: |
         repo_name="${{github.repository}}"
         echo "$repo_name"
-        echo "REPO_NAME=${github.repository#*/}"
+        echo "REPO_NAME=${github.repository#*/}" >> $GITHUB_ENV
+        echo $REPO_NAME
         # repo_name= "${repo_name#*/}"
         # echo "$repo_name"
