@@ -36,10 +36,8 @@ jobs:
       - name: Change base-tag in index.html from / to
         run: |
           # get the repository name (user_name/repo_name), keep everything after the forward slash
-          repo_name = ${ GITHUB_REPOSITORY#*/ }
-
           # replace base-tag
-          sed -i 's/<base href="\/" \/>/<base href="\/$repo_name\/" \/>/g' build/wwwroot/index.html
+          sed -i 's/<base href="\/" \/>/<base href="\/${ ${{ repo_name }}#*/ } \/" \/>/g' build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html
