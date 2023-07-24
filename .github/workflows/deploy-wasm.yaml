@@ -26,7 +26,7 @@ jobs:
       - name: "Setup .NET Core SDK"
         uses: actions/setup-dotnet@v3.2.0
         with:
-          dotnet-version: "6.0.x"
+          dotnet-version: "7.0.x"
           # dotnet-quality: "preview"
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
@@ -37,7 +37,7 @@ jobs:
         run: |
           # get the repository name (user_name/repo_name), keep everything after the forward slash
           repo_name = ${{ github.repository }}
-          echo $repo_name
+          echo repo_name
           repo_name= ${repo_name#*/}
 
           # replace base-tag
