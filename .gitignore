@@ -478,5 +478,7 @@ $RECYCLE.BIN/
 
 # IDEA folders
 .idea/*
+
+.vscode/
 /Portafolio.server
 /Portafolio.wasm
