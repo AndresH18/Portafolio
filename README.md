@@ -36,7 +36,9 @@ In this repo, this project is called `Advanced`.
 ```csharp
 ...
 // This
+
 app.UseBlazorFrameworkFiles("/webassembly"); // must start with forward slash, but seems it doesn't require the ending one
+app.UseStaticFiles(); // allow delivery of static files. Will allow sending the necesary files for wasm
 app.MapFallbackToFile("/webassembly/{*path:nonfile}", "/webassembly/index.html"); 
 ...
 ```
