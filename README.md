@@ -54,3 +54,6 @@ The `app.MapFallbackToFile` maps a route template (in this case "webassembly/*")
 
 > [!CAUTION]
 > It is important to always make sure `<StaticWebAssetBasePath>` and `<base href />` are the same. If they are different the application will **NOT** work correctly.
+
+> [!NOTE]
+> You could always set this two things (`<StaticWebAssetBasePath>` and `<base href />`) and the application would work when running it from dotnet cli as well as hosting it in ASP.NET Core
