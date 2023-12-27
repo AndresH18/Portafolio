@@ -44,3 +44,9 @@ app.MapFallbackToFile("/webassembly/{*path:nonfile}", "/webassembly/index.html")
 ```
 This will enable blazor web assembly in the host.  
 The `app.MapFallbackToFile` maps a route template (in this case "webassembly/*") to the webassembly app index file (in this case, the index.html starts with "webassembly" because that is the string we decided to use).
+
+> [!IMPORTANT]
+> The `<StaticWebAssetBasePath>` is used when compiling the WASM project as the base path for all the static resources created. This means that all files would be relative to that value.
+> Setting `<base href="/webassembly/" />` will set the relative location of all resources used by the WASM when running. This means that the Blazor WebAssembly will look inside of "webassembly" for instead of "/" when searching for files it needs.
+>
+> We could think of `<StaticWebAssetBasePath>` as setting relative location of files on compilation, and `<base href="/webassembly/" />` as specifying to Blazor WebAssembly the relative location of its files at runtime. 
