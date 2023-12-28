@@ -1,6 +1,30 @@
 ﻿@page "/projects"
+@using Octokit
+
+@inject GitHubClient Client
+@inject ILogger<Projects> Logger
+
 <h3>Project</h3>
 
+<div class="row row-cols-1 gy-5 row-cols-md-2 gx-md-2 row-cols-xl-3 gx-xl-5 row-cols-xxl-4 gx-xxl-0 ">
+    @foreach (var repo in _repos)
+    {
+        <div class="col">
+            <RepositoryCard Data=@repo/>
+        </div>
+    }
+</div>
+
+
 @code {
-    
+
+    private IEnumerable<RepositoryData> _repos = Enumerable.Empty<RepositoryData>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        var repositories = await Client.Repository.GetAllForUser("AndresH18");
+        _repos = repositories.Select(r => new RepositoryData(r.Name, r.Description, r.HtmlUrl)).ToList();
+    }
+
 }

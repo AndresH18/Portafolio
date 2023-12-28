@@ -39,15 +39,15 @@ jobs:
       
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
-        run: dotnet publish ${{ env.PROJECT }} --nologo --configuration release --output build
+        run: dotnet publish ${{ vars.PROJECT }} --nologo --configuration release --output build
 
       # changes the base-tag in index.html from '/' to "  " to match GitHub Pages repository subdirectory.
-      - name: Change base-tag in index.html from / to
+      - name: Change base-tag in index.html from / to Portfolio
 
         run: |
           ls -la
           # replace base-tag
-          sed -i "s@<base href=\"/\" />@<base href=\"/${REPO_NAME}/\" />@g" build/wwwroot/index.html
+          sed -i "s#<base href=\"/\"/>#<base href=\"${{env.REPO_NAME}}\" />#" build/wwwroot/index.html
 
       # copy index.html to 404.html to server the same file when a file is not found. This allows Blazor to handle not found requests.
       - name: Copy index.html to 404.html

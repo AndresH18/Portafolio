@@ -1,0 +1,19 @@
+﻿<div class="card p-2 border-3 h-100" style="width: 20rem;">
+    <div class="card-body">
+        <h4 class="card-title">@Data.Name</h4>
+        @if (@Data.Description is not null)
+        {
+            <p class="card-text">@Data.Description</p>
+        }
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">hello</li>
+        <li class="list-group-item">hello</li>
+        <li class="list-group-item">hello</li>
+    </ul>
+    <a href="@Data.Url" class="btn btn-primary">Read More</a>
+</div>
+
+@code {
+    [Parameter] public RepositoryData Data { get; set; } = default!;
+}

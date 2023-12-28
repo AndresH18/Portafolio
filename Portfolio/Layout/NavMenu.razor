@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark navbar-expand-lg">
     <div class="container-fluid">
-        <a href="" class="navbar-brand">Portfolio</a>
+        <a href="" class="navbar-brand">Portfolio</a> @* TODO: Decide a good name *@
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +26,7 @@
                 </NavLink>
             </div>
             <div class="nav-item px-3">
-                <NavLink class="nav-link font-monospace" href="/projects">
+                <NavLink class="nav-link font-monospace" href="projects">
                     <span class="fa-solid fa-code pe-3" aria-hidden="true"></span> Projects
                 </NavLink>
             </div>
@@ -35,13 +35,13 @@
 </div>
 
 @code {
-    private bool collapseNavMenu = true;
+    private bool _collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _collapseNavMenu = !_collapseNavMenu;
     }
 
 }
