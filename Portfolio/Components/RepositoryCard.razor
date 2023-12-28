@@ -1,4 +1,5 @@
 ﻿<div class="card p-2 border-3 h-100" style="width: 20rem;">
+    @* <h1>@Data.Languages</h1> *@
     <div class="card-body">
         <h4 class="card-title">@Data.Name</h4>
         @if (@Data.Description is not null)
@@ -7,9 +8,19 @@
         }
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">hello</li>
-        <li class="list-group-item">hello</li>
-        <li class="list-group-item">hello</li>
+        <li class="list-group-item">
+            <div class="row">
+                @foreach (var language in Data.Languages)
+                {
+                    <span class="col-auto me-1 ms-1 gy-1 badge bg-secondary">
+                        @language
+                    </span>
+                }
+            </div>
+        </li>
+        @* More list group items *@
+        @* <li class="list-group-item">hello</li> *@
+        @* <li class="list-group-item">hello</li> *@
     </ul>
     <a href="@Data.Url" class="btn btn-primary">Read More</a>
 </div>
