@@ -37,6 +37,20 @@ jobs:
           dotnet-version: "8"
       # dotnet-quality: "preview"
       
+      - name: Download Library manager
+        run: |
+          dotnet tool restore
+          dotnet tool install microsoft.web.librarymanager.cli --global
+          dotnet tool restore
+      
+      - name: Restore Libman libraries
+        run: | 
+          cd Portfolio
+          libman restore
+
+      - name: Download WASM workload
+        run: dotnet workload install wasm-tools
+      
       # publish Blazor project to the build folder
       - name: "Publish with .NET"
         run: dotnet publish ${{ vars.PROJECT }} --nologo --configuration release --output build
