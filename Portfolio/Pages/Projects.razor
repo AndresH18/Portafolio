@@ -1,7 +1,9 @@
 ﻿@page "/projects"
-@using Octokit
 
-@inject GitHubClient Client
+@using Portfolio.Services
+@using System.Diagnostics
+
+@inject GitHubService Service
 @inject ILogger<Projects> Logger
 
 <PageTitle>Projects</PageTitle>
@@ -55,22 +57,25 @@ else
 
     private async Task LoadRepos()
     {
-        _loading = true;
-        var apiOptions = new ApiOptions { StartPage = _page++, };
-        var repositories = await Client.Repository.GetAllForUser("AndresH18", apiOptions);
-        foreach (var repo in repositories)
+        await IsLoadingFor(async () =>
         {
-            var languages = await Client.Repository.GetAllLanguages(repo.Id);
-            foreach (var language in languages)
-            {
-                Logger.LogTrace("""Repository "{repository}", language "{language}" """, repo.Name, language.Name);
-            }
+            var r = await Service.GetRepositories(_page++);
+            _repos.AddRange(r);
+        });
+    }
 
-            var l = languages.OrderByDescending(language => language.NumberOfBytes).ToList();
-            _repos.Add(new RepositoryData(repo.Name, repo.Description, repo.HtmlUrl, l.Select(language => language.Name).ToList()));
+    private async Task IsLoadingFor(Func<Task> unitOfWork)
+    {
+        _loading = true;
+
+        try
+        {
+            await unitOfWork();
         }
-
-        _loading = false;
+        finally
+        {
+            _loading = false;
+        }
     }
 
 }
