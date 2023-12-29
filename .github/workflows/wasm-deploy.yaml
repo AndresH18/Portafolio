@@ -6,9 +6,10 @@ on:
   workflow_dispatch:
   push:
     branches: [ master ]
-    paths: [ Portfolio ]
+    paths: [ /Portfolio ]
   pull_request:
-    paths: [ Portfolio ]
+    branches: [ master ]
+    paths: [ /Portfolio ]
 
 permissions:
   contents: read
