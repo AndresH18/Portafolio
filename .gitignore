@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 .vscode/
 /Portafolio.server
 /Portafolio.wasm
+
+# Libman
+/Portfolio/wwwroot/
