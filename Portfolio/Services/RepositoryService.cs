@@ -3,7 +3,7 @@ using Portfolio.Data.Models;
 
 namespace Portfolio.Services;
 
-public class GitHubService(IGitHubClient gitHubClient, ILogger<GitHubService> logger)
+public class RepositoryService(IGitHubClient gitHubClient, ILogger<RepositoryService> logger)
 {
     /// <summary>
     ///     Retrieves repositories for a given page from GitHub.
@@ -14,7 +14,8 @@ public class GitHubService(IGitHubClient gitHubClient, ILogger<GitHubService> lo
     {
         var repositories =
             await gitHubClient.Repository.GetAllForUser("AndresH18", new ApiOptions { StartPage = page });
-        var repoDataTasks = repositories.Select(async repo =>
+        var repoDataTasks = repositories.OrderByDescending(r => r.PushedAt)
+            .Select(async repo =>
         {
             var languages = await gitHubClient.Repository.GetAllLanguages(repo.Id);
             languages.ToList().ForEach(l =>

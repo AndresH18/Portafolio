@@ -7,9 +7,9 @@ on:
   push:
     branches: [ master ]
     paths: [ "Portfolio/**" ]
-  pull_request:
-    branches: [ master ]
-    paths: [ "Portfolio/**" ]
+#  pull_request:
+#    branches: [ master ]
+#    paths: [ "Portfolio/**" ]
 
 permissions:
   contents: read
