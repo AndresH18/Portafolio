@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.2.0</Version>
+    <RepositoryUrl>https://github.com/AndresH18/Portfolio</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
