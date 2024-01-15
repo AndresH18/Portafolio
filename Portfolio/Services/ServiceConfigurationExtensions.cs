@@ -1,4 +1,6 @@
-﻿using Octokit;
+﻿using Blazored.SessionStorage;
+using Blazored.Toast;
+using Octokit;
 
 namespace Portfolio.Services;
 
@@ -12,9 +14,30 @@ public static class ServiceConfigurationExtensions
     ///     href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-8.0#service-lifetime">
     ///     Blazor Service Lifetime
     /// </seealso>
-    public static void RegisterGithubServices(this IServiceCollection services)
+    public static void ConfigureAppServices(this IServiceCollection services)
+    {
+        services.RegisterGithubServices();
+        services.RegisterBlazoredServices();
+    }
+
+    /// <summary>
+    ///     Registers GitHub Services
+    /// </summary>
+    /// <param name="services">the IServiceCollection to add the services to.</param>
+    private static void RegisterGithubServices(this IServiceCollection services)
     {
         services.AddSingleton<IGitHubClient, GitHubClient>(_ => new GitHubClient(new ProductHeaderValue("portfolio")));
         services.AddSingleton<RepositoryService>();
+    }
+
+    /// <summary>
+    ///     Registers the Blazored services used in the app
+    /// </summary>
+    /// <param name="services"></param>
+    /// <see href="https://github.com/Blazored">Blazored</see>
+    private static void RegisterBlazoredServices(this IServiceCollection services)
+    {
+        services.AddBlazoredToast();
+        services.AddBlazoredSessionStorage();
     }
 }
