@@ -1,4 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using Portfolio.Data.Cache
+@inherits LayoutComponentBase
+@inject IToastService Toast
+@inject ISyncSessionStorageService Storage
+
+
 <div class="page">
     <div class="sidebar font-monospace">
         <NavMenu/>
@@ -14,3 +19,26 @@
         </article>
     </main>
 </div>
+
+<BlazoredToasts Position="ToastPosition.TopCenter"/>
+
+@code
+{
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            InConstructionBanner();
+        }
+    }
+
+    private void InConstructionBanner()
+    {
+        var cached = Storage.GetItem<Cached>("in-development");
+        
+        if (cached is not null && !((ICached)cached).IsExpired()) return;
+        Toast.ShowWarning("The site is under development Expect some inconveniences", settings => { settings.DisableTimeout = true; });
+        Storage.SetItem("in-development", new Cached(DateTime.Now.AddDays(0.5)));
+    }
+}
