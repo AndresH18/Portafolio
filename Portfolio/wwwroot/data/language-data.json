@@ -1,0 +1,32 @@
+﻿[
+  {
+    "name": "C++",
+    "logoName": "cplusplus",
+    "badgeColor": "blue",
+    "logoColor": "white"
+  },
+  {
+    "name": "Java",
+    "logoName": "openjdk",
+    "badgeColor": "ED8B00",
+    "logoColor": "white"
+  },
+  {
+    "name": "C#",
+    "logoName": "csharp",
+    "badgeColor": "purple",
+    "logoColor": "white"
+  },
+  {
+    "name": "Python",
+    "logoName": "python",
+    "badgeColor": "3670A0",
+    "logoColor": "ffdd54"
+  },
+  {
+    "name": "Dockerfile",
+    "logoName": "docker",
+    "badgeColor": "blue",
+    "logoColor": "white"
+  }
+]
