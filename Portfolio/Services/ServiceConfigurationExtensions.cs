@@ -1,6 +1,9 @@
-﻿using Blazored.SessionStorage;
+﻿using System.Net.Http.Json;
+using Blazored.SessionStorage;
 using Blazored.Toast;
 using Octokit;
+using Portfolio.Data.Models;
+using Portfolio.Helpers;
 
 namespace Portfolio.Services;
 
@@ -18,6 +21,7 @@ public static class ServiceConfigurationExtensions
     {
         services.RegisterGithubServices();
         services.RegisterBlazoredServices();
+        services.AddScoped<BadgeLanguageHelper>();
     }
 
     /// <summary>

@@ -36,9 +36,9 @@
     private void InConstructionBanner()
     {
         var cached = Storage.GetItem<Cached>("in-development");
-        
+
         if (cached is not null && !((ICached)cached).IsExpired()) return;
-        Toast.ShowWarning("The site is under development Expect some inconveniences", settings => { settings.DisableTimeout = true; });
+        Toast.ShowWarning("The site is under development Expect some inconveniences", settings => { });
         Storage.SetItem("in-development", new Cached(DateTime.Now.AddDays(0.5)));
     }
 }
