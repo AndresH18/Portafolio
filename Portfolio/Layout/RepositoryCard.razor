@@ -1,5 +1,5 @@
-﻿@inject BadgeLanguageHelper Helper
-@inject ILogger<RepositoryCard> Logger
+﻿@inject ILogger<RepositoryCard> Logger
+@* @inject BadgeLanguageHelper Helper *@
 
 <div class="card p-2 border-3 h-100" style="width: 20rem;">
     @* <h1>@Data.Languages</h1> *@
@@ -16,7 +16,7 @@
                 @foreach (var language in Data.Languages)
                 {
                     Logger.LogInformation("Language {language}", language);
-                    var data = Helper[language];
+                    @* var data = Helper[language];
                     if (data is not null)
                     {
                         var src = $@"https://img.shields.io/badge/{data.Name}-{data.BadgeColor}?style=for-the-badge&logo={data.LogoName}&logoColor={data.LogoColor}";
@@ -28,7 +28,10 @@
                         var src = $@"https://img.shields.io/badge/{language}-purple?style=for-the-badge&logo={language}";
                         Logger.LogInformation("Badge src {src} for language {language}", src, language);
                         <img src="@src" alt="@language" class="col-auto me-1 ms-1 gy-1"/>
-                    }
+                    } *@
+                    <span class="col-auto me-1 ms-1 gy-1 badge bg-secondary">
+                        @language
+                    </span>
                 }
             </div>
         </li>
