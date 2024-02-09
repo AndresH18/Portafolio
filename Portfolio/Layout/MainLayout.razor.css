@@ -21,20 +21,38 @@ main {
     align-items: center;
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
+.top-row ::deep a, .top-row ::deep .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    text-decoration: none;
+}
 
-    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
+.top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
+    text-decoration: underline;
+}
 
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.top-row ::deep a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*blockquote {*/
+/*    margin: 0;*/
+/*}*/
+
+/*blockquote p {*/
+/*    padding: 15px;*/
+/*    background: #eee;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*blockquote p::before {*/
+/*    content: '\201C';*/
+/*}*/
+
+/*blockquote p::after {*/
+/*    content: '\201D';*/
+/*}*/
 
 @media (max-width: 640.98px) {
     .top-row {
