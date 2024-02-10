@@ -3,7 +3,6 @@
 @inject IToastService Toast
 @inject ISyncSessionStorageService Storage
 
-
 <div class="page">
     <div class="sidebar font-monospace">
         <NavMenu/>
@@ -24,6 +23,8 @@
 
 @code
 {
+
+
     protected override void OnAfterRender(bool firstRender)
     {
         base.OnAfterRender(firstRender);
