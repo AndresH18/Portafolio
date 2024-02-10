@@ -1,10 +1,17 @@
 ﻿@inject ILogger<RepositoryCard> Logger
 @* @inject BadgeLanguageHelper Helper *@
 
-<div class="card p-2 border-3 h-100" style="width: 20rem;">
+<div class="card p-2 border-3" id="repo-card">
     @* <h1>@Data.Languages</h1> *@
     <div class="card-body">
-        <h4 class="card-title">@Data.Name</h4>
+        <h4 class="card-title">
+            @Data.Name <img alt="GitHub top language" src=@($"https://img.shields.io/github/languages/top/andresh18/{Data.Name}")>
+        </h4>
+
+        @* @if (Data.Archived) *@
+        @* { *@
+        @*     <img alt="Archived" src="https://img.shields.io/badge/Archived-orange"> *@
+        @* } *@
         @if (@Data.Description is not null)
         {
             <p class="card-text">@Data.Description</p>
@@ -15,7 +22,7 @@
             <div class="row">
                 @foreach (var language in Data.Languages)
                 {
-                    Logger.LogInformation("Language {language}", language);
+                    Logger.LogTrace("Repository language {language}", language);
                     @* var data = Helper[language];
                     if (data is not null)
                     {

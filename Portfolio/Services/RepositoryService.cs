@@ -5,41 +5,50 @@ namespace Portfolio.Services;
 
 public class RepositoryService(IGitHubClient gitHubClient, ILogger<RepositoryService> logger)
 {
+    private IEnumerable<RepositoryData> Repositories { get; set; } = Enumerable.Empty<RepositoryData>();
+
     /// <summary>
-    ///     Retrieves repositories for a given page from GitHub.
+    ///     Load repositories from GitHub.
     /// </summary>
-    /// <returns>A list of RepositoryData objects.</returns>
-    public async Task<IReadOnlyList<RepositoryData>> GetRepositories(int page = 1)
+    public async Task LoadRepositories()
     {
-        var repositories =
-            await gitHubClient.Repository.GetAllForUser("AndresH18", new ApiOptions { StartPage = page });
-        var repoDataTasks = repositories.OrderByDescending(r => r.PushedAt)
-            .Select(async repo =>
-            {
-                var languages = await gitHubClient.Repository.GetAllLanguages(repo.Id);
-                languages.ToList().ForEach(l =>
-                    logger.LogTrace("Repository '{repository}' language: {language}", repo.Name, l.Name));
+        try
+        {
+            var repositories =
+                await gitHubClient.Repository.GetAllForUser("AndresH18", new ApiOptions { StartPage = 1 });
+            var repoDataTasks = repositories.OrderByDescending(r => r.PushedAt)
+                .Select(async repo =>
+                {
+                    var languages = await gitHubClient.Repository.GetAllLanguages(repo.Id);
+                    languages.ToList().ForEach(l =>
+                        logger.LogTrace("Repository '{repository}' language: {language}", repo.Name, l.Name));
 
-                // var orderedLanguagesNames = languages
-                //     .OrderByDescending(l => l.NumberOfBytes)
-                //     .Select(l => l.Name)
-                //     .ToList();
+                    // var orderedLanguagesNames = languages
+                    //     .OrderByDescending(l => l.NumberOfBytes)
+                    //     .Select(l => l.Name)
+                    //     .ToList();
 
-                var orderedLanguagesNames =
-                    from l in languages
-                    orderby l.NumberOfBytes descending
-                    select l.Name;
+                    var orderedLanguagesNames =
+                        from l in languages
+                        orderby l.NumberOfBytes descending
+                        select l.Name;
 
-                var repoData =
-                    new RepositoryData(repo.Name, repo.Description, repo.HtmlUrl, orderedLanguagesNames.ToList());
+                    var repoData =
+                        new RepositoryData(repo.Name, repo.Description, repo.HtmlUrl, orderedLanguagesNames.ToList());
 
-                return repoData;
-            });
+                    return repoData;
+                });
 
-        var repositoriesData = await Task.WhenAll(repoDataTasks);
-
-       
-
-        return repositoriesData;
+            Repositories = await Task.WhenAll(repoDataTasks);
+            RepositoriesLoaded?.Invoke(this, Repositories);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "Error getting github repositories");
+            RequestFailed?.Invoke(this, EventArgs.Empty);
+        }
     }
+
+    public event EventHandler? RequestFailed;
+    public event EventHandler<IEnumerable<RepositoryData>>? RepositoriesLoaded;
 }

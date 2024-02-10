@@ -2,7 +2,8 @@
 
 @using Portfolio.Services
 
-@inject RepositoryService Service
+@inject RepositoryService RepositoryService
+@inject IToastService ToastService
 
 <PageTitle>Projects</PageTitle>
 
@@ -16,35 +17,52 @@
 }
 else
 {
-    <div class="row gy-3">
+    <section class="container-fluid row">
         @foreach (var repo in _repos)
         {
-            <div class="col">
+            <article class="col mt-3 d-flex justify-content-center">
                 <RepositoryCard Data=@repo/>
-            </div>
+            </article>
         }
-    </div>
-    <div class="d-flex justify-content-center mt-5 mb-5">
-        @if (Loading)
-        {
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        }
-        else
-        {
-            <button class="btn btn-primary ps-4 pe-4" @onclick="LoadRepos">Load More</button>
-        }
-    </div>
+    </section>
+    @* <div class="d-flex justify-content-center mt-5 mb-5"> *@
+    @*     @if (Loading) *@
+    @*     { *@
+    @*         <div class="spinner-border" role="status"> *@
+    @*             <span class="visually-hidden">Loading...</span> *@
+    @*         </div> *@
+    @*     } *@
+    @*     else *@
+    @*     { *@
+    @*         <button class="btn btn-primary ps-4 pe-4" @onclick="LoadRepos">Load More</button> *@
+    @*     } *@
+    @* </div> *@
 }
 
 @code {
 
-    private readonly List<RepositoryData> _repos = [];
+    private IEnumerable<RepositoryData> _repos = [];
     private bool _loading = true;
     private int _page = 1;
 
     private bool Loading => !_repos.Any() || _loading;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        RepositoryService.RepositoriesLoaded += OnRepositoriesLoaded;
+        RepositoryService.RequestFailed += RepositoryService_OnRequestFailed;
+    }
+
+    private void OnRepositoriesLoaded(object? sender, IEnumerable<RepositoryData> e)
+    {
+        _repos = e;
+    }
+
+    private void RepositoryService_OnRequestFailed(object? sender, EventArgs e)
+    {
+        ToastService.ShowError("There is was an error with the GitHub API", settings => { settings.Timeout = 10; });
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -55,11 +73,7 @@ else
 
     private async Task LoadRepos()
     {
-        await IsLoadingFor(async () =>
-        {
-            var r = await Service.GetRepositories(_page++);
-            _repos.AddRange(r);
-        });
+        await IsLoadingFor(RepositoryService.LoadRepositories);
     }
 
     private async Task IsLoadingFor(Func<Task> unitOfWork)
@@ -77,3 +91,4 @@ else
     }
 
 }
+
