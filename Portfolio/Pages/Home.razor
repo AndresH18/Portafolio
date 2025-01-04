@@ -1,16 +1,16 @@
 ﻿@page "/"
 @inject IToastService Toast
 
-
 <PageTitle>Home</PageTitle>
-<article>
-    <h1>
-        <em>Hello there <i class="fa-brands fa-jedi-order"></i></em>
-    </h1>
-</article>
 
-<article>
-    <p>First things first, my name is <b>Andrés Hoyos</b> and I'm a Software and Computing Engineer from Colombia.</p>
+<section class="m-4">
+    <FluentLabel Typo="Typography.HeroTitle">
+        <em>Hello there <i class="fa-brands fa-jedi-order"></i></em>
+    </FluentLabel>
+</section>
+
+<section class="m-4">
+    <p>First things first, my name is <b>Andrés Hoyos</b>, and I'm a Software and Computing Engineer from Colombia.</p>
 
     <p>
         Welcome to my digital abode — where logic meets creativity, and software engineering becomes an art. <br/>
@@ -23,71 +23,76 @@
         or you can go directly to my
         <a href="https://github.com/AndresH18" rel="noopener noreferrer" target="_blank" class="text-decoration-none">GitHub <span class="fa-brands fa-github"></span></a>
     </p>
-</article>
+</section>
 
-<article class="mt-2 mb-5 container-xxl row">
-    <h2 class="mb-3">Stats</h2>
+<section>
+    <FluentLabel Typo="Typography.H2">Stats</FluentLabel>
 
-    <section class="col-xxl-5 mt-3" id="github-stats">
-        <h3>GitHub</h3>
-        <picture >
-            <img src="https://github-readme-stats.vercel.app/api?username=andresh18&show_icons=true&theme=dracula" alt="GitHub Stats" class="img-fluid">
-        </picture>
-    </section>
-    <section class="col-xxl-5 mt-3" id="streak">
-        <h3>Streak</h3>
-        <picture>
-            <img src="https://github-readme-streak-stats.herokuapp.com/?user=andresh18&theme=dark" alt="Streak" class="img-fluid">
-        </picture>
-    </section>
-    <section class="col-xxl-5 mt-3" id="language-stats">
-        <h3>Languages</h3>
-        <picture>
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=andresh18&theme=dracula&layout=compact" alt="Language Stats" class="img-fluid">
-        </picture>
-    </section>
+    <FluentGrid Justify="JustifyContent.FlexStart">
+        <FluentGridItem>
+            <FluentCard id="github-stats" MinimalStyle="true" Width="100%">
+                <FluentLabel Typo="Typography.H3">GitHub</FluentLabel>
+                <picture>
+                    <img src="https://github-readme-stats.vercel.app/api?username=andresh18&show_icons=true&theme=dracula" alt="GitHub Stats" class="img-fluid">
+                </picture>
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem>
+            <FluentCard id="streak" MinimalStyle="true" Width="100%">
+                <FluentLabel Typo="Typography.H3">Streak</FluentLabel>
+                <picture>
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=andresh18&theme=dark" alt="Streak" class="img-fluid">
+                </picture>
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem >
+            <FluentCard id="language-stats" MinimalStyle="true" Width="100%">
+                <FluentLabel Typo="Typography.H3">Languages</FluentLabel>
+                <picture>
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=andresh18&theme=dracula&layout=compact" alt="Language Stats" class="img-fluid">
+                </picture>
+            </FluentCard>
+        </FluentGridItem>
+    </FluentGrid>
+    <FluentFooter>
+        <i>This stats where made with <a href="https://github.com/anuraghazra/github-readme-stats">GitHub readme stats</a></i>
+    </FluentFooter>
+</section>
 
-    <footer class="mt-5"><i >This stats where made with <a href="https://github.com/anuraghazra/github-readme-stats">GitHub readme stats</a></i></footer>
-</article>
-
-<article>
-    <h2>This portfolio</h2>
-    <section>
+<section class="m-4">
+    <FluentLabel Typo="Typography.H2">This portfolio</FluentLabel>
+    <article>
         <p>
             You might be asking yourself, <i>how did he make this portfolio</i>, or maybe not, but I'll tell you anyways.
             This portfolio was made using <a href="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor" class="text-decoration-none">Blazor WebAssembly</a>.<br/>
             Then, by using <a href="https://github.com/features/actions" class="text-decoration-none">GitHub Actions</a> I build and deploy <span class="fa-solid fa-upload"></span>
             this to <a href="https://pages.github.com/" class="text-decoration-none">GitHub Pages</a> where you're currently seeing it <i>(hopefully)</i>.
-            <br>You can see the source for this portfolio on <a href="https://github.com/AndresH18/Portfolio" class="text-decoration-none">github <span class="text-black fa-brands fa-github"></span></a>
+            <br>You can see the source for this portfolio on <a href="https://github.com/AndresH18/Portfolio.old" class="text-decoration-none">github <span class="text-black fa-brands fa-github"></span></a>
         </p>
-
-    </section>
-    <section>
+    </article>
+    <article>
         <p>
             <b>....</b>What is Blazor? Fufufu, well then, let me tell you.
         </p>
-        <div class="mt-3 mb-3">
-            ""
-            <blockquote class="blockquote" cite="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0#blazor-webassembly">
-                <p>
-                    Blazor WebAssembly is a single-page app (SPA) framework for building interactive client-side web apps with .NET.
-                </p>
-                <p>
-                    Running .NET code inside web browsers is made possible by <a href="https://webassembly.org/">WebAssembly</a> (abbreviated <code>wasm</code>).
-                    WebAssembly is a compact bytecode format optimized for fast download and maximum execution speed. WebAssembly is an open web
-                    standard and supported in web browsers without plugins. WebAssembly works in all modern web browsers, including mobile browsers.
-                </p>
-                <p>
-                    WebAssembly code can access the full functionality of the browser via JavaScript, called <i>JavaScript interoperability</i>,
-                    often shortened to <i>JavaScript interop</i> or <i>JS interop</i>. .NET code executed via WebAssembly in the browser runs
-                    in the browser's JavaScript sandbox with the protections that the sandbox provides against malicious actions on the client machine
-                </p>
-            </blockquote>""
-        </div>
+        <blockquote class="blockquote" cite="https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0#blazor-webassembly">
+            <p>
+                Blazor WebAssembly is a single-page app (SPA) framework for building interactive client-side web apps with .NET.
+            </p>
+            <p>
+                Running .NET code inside web browsers is made possible by <a href="https://webassembly.org/">WebAssembly</a> (abbreviated <code>wasm</code>).
+                WebAssembly is a compact bytecode format optimized for fast download and maximum execution speed. WebAssembly is an open web
+                standard and supported in web browsers without plugins. WebAssembly works in all modern web browsers, including mobile browsers.
+            </p>
+            <p>
+                WebAssembly code can access the full functionality of the browser via JavaScript, called <i>JavaScript interoperability</i>,
+                often shortened to <i>JavaScript interop</i> or <i>JS interop</i>. .NET code executed via WebAssembly in the browser runs
+                in the browser's JavaScript sandbox with the protections that the sandbox provides against malicious actions on the client machine
+            </p>
+        </blockquote>
         <p>Pretty simple, right? ....You're still confused, aren't you?</p>
         <p>
             Let's just say that is a web framework that allows me to write webpages using HTML and C# instead of using javascript,
             while still being able to interact with all the elements of the DOM and leveraging all the power of NET.
         </p>
-    </section>
-</article>
+    </article>
+</section>

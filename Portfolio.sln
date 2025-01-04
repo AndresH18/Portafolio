@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio", "Portfolio\Portfolio.csproj", "{40746ECB-8C93-47B3-A9B9-48CE34AC5873}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.old", "Portfolio.old\Portfolio.old.csproj", "{40746ECB-8C93-47B3-A9B9-48CE34AC5873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio", "Portfolio\Portfolio.csproj", "{11727F85-7A8C-4AE9-9691-727813D85447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{40746ECB-8C93-47B3-A9B9-48CE34AC5873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40746ECB-8C93-47B3-A9B9-48CE34AC5873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40746ECB-8C93-47B3-A9B9-48CE34AC5873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11727F85-7A8C-4AE9-9691-727813D85447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11727F85-7A8C-4AE9-9691-727813D85447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11727F85-7A8C-4AE9-9691-727813D85447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11727F85-7A8C-4AE9-9691-727813D85447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
