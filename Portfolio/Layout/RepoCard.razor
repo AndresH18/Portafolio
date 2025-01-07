@@ -1,0 +1,12 @@
+﻿@using Portfolio.Data
+<div>
+@* <FluentCard Width="500" Height="200"> *@
+@*     <FluentLabel Typo="Typography.Header"> *@
+        @Data?.Name
+@*     </FluentLabel><img alt="GitHub top language" src=@($"https://img.shields.io/github/languages/top/andresh18/{Data?.Name}")> *@
+@* </FluentCard> *@
+</div>
+@code {
+    [Parameter] public RepositoryData? Data { get; set; }
+
+}

@@ -1,0 +1,50 @@
+﻿@page "/Projects"
+@using Portfolio.Data
+
+@inject GithubService Service
+
+<PageTitle>Projects</PageTitle>
+
+<FluentLabel Typo="Typography.HeroTitle">My Projects</FluentLabel>
+
+@if (_loading)
+{
+    <FluentLabel Typo="Typography.Header">Loading...</FluentLabel>
+}
+else
+{
+    @if (Repos.Length == 0)
+    {
+        <FluentLabel Typo="Typography.Header">Sorry, there's nothing to show</FluentLabel>
+    }
+    else
+    {
+        <FluentGrid>
+            @foreach (var repo in Repos)
+            {
+                <FluentGridItem xs="5">
+                    <RepoCard Data="repo"/>
+                </FluentGridItem>
+            }
+        </FluentGrid>
+    }
+}
+
+@code {
+    private bool _loading;
+    private RepositoryData[] Repos { get; set; } = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _loading = true;
+        await base.OnInitializedAsync();
+
+        // Service.Error += (sender, s) => { };
+        Repos = await Service.GetRepositories();
+        
+
+        _loading = false;
+    }
+
+
+}
